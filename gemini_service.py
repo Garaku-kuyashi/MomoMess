@@ -60,6 +60,7 @@ Balas hanya sebagai {nama}
         except Exception as e:
             print(f"Gemini gagal merespons. Percobaan {percobaan}/{MAKSIMAL_COBA}...")
             if percobaan < MAKSIMAL_COBA:
+                time.sleep(2)
                 print("Mencoba lagi dalam 2 detik...")
             else:
                 return "Gemini sedang sibuk atau koneksi bermasalah. Coba kirim pesan lagi dalam beberapa saat.", False

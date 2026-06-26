@@ -89,18 +89,18 @@ def simpan_data_karakter(karakter_list):
     except Exception as e:
         print(f"Terjadi kesalahan saat menyimpan data karakter ke {FILE_KARAKTER}: {e}")
 
-def load_data_karakter(karakter_list):
+def load_data_karakter():
     # global karakter_list
 
     try:
         with open(FILE_KARAKTER, "r", encoding="utf-8") as file:
             return json.load(file)
     except FileNotFoundError:
-        simpan_data_karakter(karakter_list)
-        return karakter_list
+        simpan_data_karakter([])
+        return []
     except json.JSONDecodeError:
         print("Terjadi kesalahan saat memuat riwayat chat dari. File mungkin rusak.")
-        return karakter_list
+        return []
     except Exception as e:
         print(f"Terjadi kesalahan saat menyimpan data karakter ke {FILE_KARAKTER}: {e}")
-        return karakter_list
+        return []

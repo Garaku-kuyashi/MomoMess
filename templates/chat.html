@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/output.css">
+    <title>Chat</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="/"><- Kembali</a>
+            <h1>{{ karakter.nama }}</h1>
+            <p>{{ karakter.deskripsi }}</p>
+        </div>
+
+         <div class="history" id="history">
+
+            {% for pesan in history %}
+
+            <div class="message">
+                <div class="user-message">
+                    <strong>Kamu</strong><br>
+                    {{ pesan.user }}
+                </div>
+
+                <br>
+
+                <div class="assistant-message">
+                    <strong>{{ karakter.nama }}</strong><br>
+                    {{ pesan.assistant }}
+                </div>
+
+                <small>{{ pesan.waktu }}</small>
+
+                <hr>
+            </div>
+            {% endfor %}
+        </div>
+    
+        <!-- <p>Deskripsi: </p> -->
+        <!-- <p>Pesan terakhir: </p>
+        <p>{{ karakter.pesan_terakhir }}</p> -->
+        <!-- <h2>Riwayat Chat</h2> -->
+
+        <form action="/chat/{{ nomor }}" method="post">
+            <input type="text" name="pesan" placeholder="Tulis pesan..." required>
+            <button type="submit">Kirim</button>
+        </form>
+    </div>
+
+    
+</body>
+<script src="/static/js/app.js"></script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/output.css">
+    <title>MomoMess</title>
+</head>
+<hr>
+    <h1>MomoMess Talk</h1>
+
+    <hr>
+    {% for karakter in karakter_list %}
+    <div>
+        <a href="/chat/{{ loop.index0 }}">
+            <h2>{{ karakter.nama }}</h2>
+        </a>
+
+        <p>
+            {{ karakter.pesan_terakhir }}
+        </p>
+    </div>
+
+    <hr>
+
+    {% endfor %}
+</body>
+</html>
