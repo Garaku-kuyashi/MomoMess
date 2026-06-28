@@ -6,50 +6,114 @@
     <link rel="stylesheet" href="/static/css/output.css">
     <title>Chat</title>
 </head>
-<body>
-    <div class="container">
-        <div class="header">
-            <a href="/"><- Kembali</a>
-            <h1>{{ karakter.nama }}</h1>
-            <p>{{ karakter.deskripsi }}</p>
-        </div>
-
-         <div class="history" id="history">
-
-            {% for pesan in history %}
-
-            <div class="message">
-                <div class="user-message">
-                    <strong>Kamu</strong><br>
-                    {{ pesan.user }}
-                </div>
-
-                <br>
-
-                <div class="assistant-message">
-                    <strong>{{ karakter.nama }}</strong><br>
-                    {{ pesan.assistant }}
-                </div>
-
-                <small>{{ pesan.waktu }}</small>
-
-                <hr>
+<body class="h-screen bg-pink-100">
+    <div class="flex h-full">
+        <aside class="w-80 border-r border-gray-300 h-full flex flex-col bg-white">
+            <div class="p-4 border-b border-gray-300">
+                <h2 class="text-2xl font-bold">
+                    MomoMess
+                </h2>
             </div>
-            {% endfor %}
-        </div>
-    
-        <!-- <p>Deskripsi: </p> -->
-        <!-- <p>Pesan terakhir: </p>
-        <p>{{ karakter.pesan_terakhir }}</p> -->
-        <!-- <h2>Riwayat Chat</h2> -->
+            <div class=" flex-1 overflow-y-auto">
+                {% for item in karakter_list %}
+                <a 
+                href="/chat/{{ loop.index0 }}"
+                class=" flex items-center gap-3 p-4 hover:bg-gray-100 transition border-b border-gray-100
+                {% if loop.index0 == nomor %}
+                    bg-blue-100
+                    border-l-4 border-blue-500
+                {% else %}
+                    hover:bg-gray-100
+                {% endif %}
+                ">
 
-        <form action="/chat/{{ nomor }}" method="post">
-            <input type="text" name="pesan" placeholder="Tulis pesan..." required>
-            <button type="submit">Kirim</button>
-        </form>
+                    <img 
+                    src="/static/images/{{ item.avatar }}" 
+                    class=" w-14 h-14 rounded-full object-cover">
+
+                    <div class=" min-w-0">
+                        <h3 class=" font-semibold
+                        {% if loop.index0 == nomor %}
+                            text-blue-700
+                        {% endif %}
+                        ">
+                            {{ item.nama }}
+                        </h3>
+
+                        <p class=" text-sm text-gray-500 truncate">
+                            {{ item.pesan_terakhir }}
+                        </p>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </aside>
+
+        <main class="flex-1 flex flex-col bg-gray-100 h-full">
+            <header class="border-b border-gray-300 p-4 shadow-sm">
+                <h1 class="text-2xl font-bold">
+                {{ karakter.nama }}
+                </h1>
+
+                <p class="text-gray-600">
+                    {{ karakter.deskripsi }}
+                </p>
+            </header>
+
+            <div id="history" class=" flex-1 overflow-y-auto p-6 space-y-6">
+                {% for pesan in history %}
+                <!-- pesan user -->
+                <div class="flex justify-end">
+                    <div class="max-w-xl bg-blue-500 text-white rounded-2xl px-4 py-3 shadow">
+                        <p class="text-sm font-semibold mb-1">Kamu</p>
+                        <p>{{ pesan.user }}</p>
+                    </div>
+                </div>
+
+                <!-- pesan AI -->
+                 <div class="flex justify-start">
+                    <div class="max-w-xl bg-white rounded-2xl px-4 py-3 shadow border text-left"> 
+                        <p class="text-sm font-semibold mb-1">
+                            {{ karakter.nama }}
+                        </p>
+
+                        <p class="">
+                            {{ pesan.assistant }}
+                        </p>
+
+                        <p class="text-xs text-gray-400 mt-2">
+                            {{ pesan.waktu }}
+                        </p>
+                    </div>
+                 </div>
+                {% endfor %}
+            </div>
+            <form 
+            action="/chat/{{ nomor }}" 
+            method="post" 
+            class="border-t border-gray-300 p-4 bg-white">
+
+            <div class="flex gap-3">
+                <input 
+                type="text" 
+                name="pesan"
+                placeholder="Tulis Pesan..."
+                required
+                class="flex-1 rounded-xl border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                <button 
+                type="submit"
+                class=" bg-blue-500 text-white px-6 py-3 rounded-xl hover:bg-blue-600 transition">
+                    Kirim
+                </button>
+            </div>
+                
+            </form>
+            
+        </main>
     </div>
-
     
+    <script src="/static/js/app.js"></script>
+
 </body>
-<script src="/static/js/app.js"></script>
 </html>

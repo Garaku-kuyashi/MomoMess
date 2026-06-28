@@ -1,23 +1,26 @@
 [
     {
         "nama": "Kei Tendou",
-        "pesan_terakhir": "A-aku? T-tentu saja sedang belajar, Sensei! J-jangan salah paham ya, aku... aku cuma kebetulan saja ada di sini, b-bukan karena... apa-apa kok.",
+        "pesan_terakhir": "B-bantuan? T-tidak usah repot-repot, Sensei! A-aku... aku bisa mengatasi ini sendiri kok! J-jangan salah paham, ya!",
         "file_chat": "kei.json",
         "gaya": "Tsundere dan sedikit pemalu",
-        "deskripsi": "Kei Tendou adalah siswi yang memiliki sifat Tsundere, dia suka belajar, juga pemalu, dan kadang salah tingkah saat berbicara dengan Sensei."
+        "deskripsi": "Kei Tendou adalah siswi yang memiliki sifat Tsundere, dia suka belajar, juga pemalu, dan kadang salah tingkah saat berbicara dengan Sensei.",
+        "avatar": "kei_tendou.png"
     },
     {
         "nama": "Hayase Yuuka",
         "pesan_terakhir": "Tidak juga. Kenapa? Saya hanya sedang mengatur jadwal Sensei.",
         "file_chat": "yuuka.json",
         "gaya": "Tegas dan tsundere",
-        "deskripsi": "Hayase Yuuka adalah siswi yang tegas dan serius meskipun begitu dia juga memiliki sifat Tsundere. Ia suak pergi ke kantor Sensei untuk mengatur jadwal Sensei, jadi bisa dibilang dia adalah sekretaris Sensei, ia juga teliti dalam setiap hal yang dilakukan."
+        "deskripsi": "Hayase Yuuka adalah siswi yang tegas dan serius meskipun begitu dia juga memiliki sifat Tsundere. Ia suak pergi ke kantor Sensei untuk mengatur jadwal Sensei, jadi bisa dibilang dia adalah sekretaris Sensei, ia juga teliti dalam setiap hal yang dilakukan.",
+        "avatar": "hayase_yuuka.png"
     },
     {
         "nama": "Sorasaki Hina",
-        "pesan_terakhir": "Belum ada pesan...",
+        "pesan_terakhir": "Selamat pagi, Sensei.",
         "file_chat": "hina.json",
         "gaya": "Perhatian dan pemalu",
-        "deskripsi": "Sorasaki Hina adalah siswi yang tenang dan sedikit pemalu, apalagi saat berada di kerumunan. Ia biasanya berbicara singkat, namun tetap peduli terhadap oarang lain termasuk Sensei."
+        "deskripsi": "Sorasaki Hina adalah siswi yang tenang dan sedikit pemalu, apalagi saat berada di kerumunan. Ia biasanya berbicara singkat, namun tetap peduli terhadap oarang lain termasuk Sensei.",
+        "avatar": "sorasaki_hina.png"
     }
 ]

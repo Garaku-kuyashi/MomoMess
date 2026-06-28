@@ -56,11 +56,12 @@ def info_karakter(nomor, karakter_list):
     print(f"Gaya  : {karakter['gaya']}")
     print(f"Pesan terakhir  : {karakter['pesan_terakhir']}")
     print(f"File chat  : {karakter['file_chat']}")
+    print(f"Avatar : {karakter.get('avatar', '-')}")
    
 
 def buat_nama_file(nama):
     nama = nama.lower()
-    nama = nama.replace("", "_")
+    nama = nama.replace(" ", "_")
     return nama + ".json"
 
 def tambah_karakter(karakter_list):
@@ -84,6 +85,7 @@ def tambah_karakter(karakter_list):
 
     gaya = input("Gaya karakter: ").strip()
     deskripsi = input("Deskripsi karakter: ").strip()
+    avatar = input("Nama file avatar (contoh: yuuka.png): ").strip()
 
     if not gaya:
         gaya = "ramah"
@@ -91,12 +93,16 @@ def tambah_karakter(karakter_list):
     if not deskripsi:
         deskripsi = "Karakter yang ramah dan sopan"
 
+    if not avatar:
+        avatar = "default.png"
+
     karakter_baru = {
         "nama" : nama,
         "pesan_terakhir" : pesan_awal,
         "file_chat" : buat_nama_file(nama),
         "gaya" : gaya,
-        "dekripsi" : deskripsi
+        "deskripsi" : deskripsi,
+        "avatar" : avatar
     }
 
     karakter_list.append(karakter_baru)
@@ -121,6 +127,7 @@ def edit_karakter(nomor, karakter_list):
     gaya_baru = input("Gaya baru: ").strip()
     deskripsi_baru = input("Deskripsi baru: ").strip()
     pesan_baru = input("Pesan baru: ").strip()
+    avatar_baru = input("Avatar baru: ")
 
     if nama_baru:
         for data in karakter_list:
@@ -147,6 +154,9 @@ def edit_karakter(nomor, karakter_list):
 
     if pesan_baru:
         karakter["pesan_terakhir"] = pesan_baru
+
+    if avatar_baru:
+        karakter["avatar"] = avatar_baru
 
     simpan_data_karakter(karakter_list)
     print(f"Data karakter {karakter['nama']} berhasil diperbarui")

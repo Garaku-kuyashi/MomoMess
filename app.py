@@ -48,7 +48,8 @@ def buka_chat(request: Request, nomor: int):
         context={
             "karakter": karakter,
             "history": history,
-            "nomor": nomor
+            "nomor": nomor,
+            "karakter_list" : karakter_list
         }
     )
 
