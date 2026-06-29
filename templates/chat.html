@@ -51,7 +51,7 @@
 
         <main class="flex-1 flex flex-col bg-gray-100 h-full">
             <header class="border-b border-gray-300 p-4 shadow-sm">
-                <h1 class="text-2xl font-bold">
+                <h1 id="nama-karakter" class="text-2xl font-bold">
                 {{ karakter.nama }}
                 </h1>
 
@@ -89,12 +89,15 @@
                 {% endfor %}
             </div>
             <form 
+            id="chat-form"
+            data-nomor="{{ nomor }}"
             action="/chat/{{ nomor }}" 
             method="post" 
             class="border-t border-gray-300 p-4 bg-white">
 
             <div class="flex gap-3">
                 <input 
+                id="pesan-input"
                 type="text" 
                 name="pesan"
                 placeholder="Tulis Pesan..."
@@ -102,6 +105,7 @@
                 class="flex-1 rounded-xl border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
 
                 <button 
+                id="send-button"
                 type="submit"
                 class=" bg-blue-500 text-white px-6 py-3 rounded-xl hover:bg-blue-600 transition">
                     Kirim
